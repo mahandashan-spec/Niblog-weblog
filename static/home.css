@@ -1,0 +1,462 @@
+        :root {
+            --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            --background-color: #e9edf7;
+            --header: rgba(255, 255, 255, 0.95);
+            --text-color: #002255;
+            --sec-text: #555;
+            --sec-color: #0e6eff;
+            --btn-sec: #0e6eff;
+            --cart-color: #ffffff59;
+            --num-color: rgb(255, 196, 0);
+            --guid-text: #002255;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Tahoma', 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            overflow-x: hidden;
+        }
+
+        body.darkMode {
+            --bg-gradient: linear-gradient(135deg, #212529 2%, #11284e 98%);
+            --background-color: #11284ef1;
+            --header: #11284ef1;
+            --text-color: hsl(0, 0%, 100%);
+            --sec-text: #767676;
+            --sec-color: #0e6eff;
+            --btn-sec: #ffffff;
+            --cart-color: rgba(255, 255, 255, 0.749);
+            --num-color: rgb(255, 123, 0);
+            --guid-text: block;
+        }
+
+        #theme-icon-sun {
+            display: none;
+        }
+
+        #theme-icon-moon {
+            display: block;
+        }
+
+        body.darkMode #theme-icon-sun {
+            display: block;
+            color: #f39c12;
+        }
+
+        body.darkMode #theme-icon-moon {
+            display: none;
+        }
+
+        body,
+        .header,
+        .landing-txt h1,
+        .landing-txt h4,
+        .navbar-item {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .navbar-item a {
+            text-decoration: none;
+            color: var(--sec-text);
+        }
+
+        /* انیمیشن ورود صفحه */
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* هدر و نوار ناوبری */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--header);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .landing-navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 25px;
+            height: 70px;
+        }
+
+        .navbar-logo {
+            display: flex;
+            gap: 10px;
+            align-items: baseline;
+        }
+
+        .navbar-logo>p {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .hamberger {
+            width: 21px;
+            margin: 0;
+            padding: 0;
+            margin-top: 10px;
+            cursor: pointer;
+            display: none;
+        }
+
+        .ham {
+            border: 1.33px solid var(--text-color);
+            margin: 4px;
+        }
+
+        .navbar-items {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-item {
+            color: var(--sec-text);
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .navbar-item:hover {
+            color: #002255;
+        }
+
+        .navbar-search {
+            display: flex;
+            align-items: center;
+            background: #f0f2f5;
+            border-radius: 20px;
+            padding: 5px 15px;
+            width: 250px;
+        }
+
+        .navbar-search input {
+            border: none;
+            background: transparent;
+            outline: none;
+            width: 100%;
+            padding: 5px;
+            color: #333;
+        }
+
+        .navbar-end {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .navbar-end>p {
+            background-color: #38e638;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        .navbar-end i {
+            color: var(--text-color);
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: transform 0.2s;
+        }
+
+        .navbar-end i:hover {
+            transform: scale(1.1);
+        }
+
+        /* بخش اصلی لندینگ */
+        .landing-con {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: var(--bg-gradient);
+            padding-top: 80px;
+            /* فاصله از هدر */
+            overflow: hidden;
+        }
+
+        .landing-txt {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 800px;
+            padding: 20px;
+            animation: slideUp 0.8s ease-in-out;
+        }
+
+        .landing-txt h1 {
+            color: var(--text-color);
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .landing-txt h4 {
+            color: var(--sec-text);
+            font-size: 1.1rem;
+            font-weight: normal;
+            margin-top: 15px;
+            margin-bottom: 30px;
+            font-family: inherit;
+        }
+
+        /* دکمه‌ها */
+        .landing-btn {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .landing-btn button {
+            padding: 12px 35px;
+            border-radius: 50px;
+            border: none;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background-color: var(--sec-color);
+            color: white;
+            position: relative;
+        }
+
+        .btn-primary::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%) rotate(180deg);
+            width: 0;
+            height: 0;
+            border-top: 6px solid transparent;
+            border-bottom: 6px solid transparent;
+            border-left: 12px solid white;
+            pointer-events: none;
+            transition: transform 0.3s ease;
+            margin-right: 65px;
+            border-radius: 2px;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(14, 110, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: rgba(233, 233, 233, 0.194);
+            color: var(--btn-sec);
+            border: 2px solid #002255;
+        }
+
+        .btn-secondary:hover {
+            background-color: #002255;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* مثلث‌های جادویی */
+        .magic-triangles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .magic-triangle {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            opacity: 0.6;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* تنظیمات مثلث‌ها */
+        .t1 {
+            top: 20%;
+            left: 10%;
+            background-color: #ff6b6b;
+            transform: rotate(15deg);
+            animation-delay: 0s;
+        }
+
+        .t2 {
+            top: 60%;
+            right: 15%;
+            background-color: #4ecdc4;
+            transform: rotate(-20deg);
+            animation-delay: 1.5s;
+        }
+
+        .t3 {
+            bottom: 15%;
+            left: 20%;
+            background-color: #ffe66d;
+            transform: rotate(45deg);
+            animation-delay: 3s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(var(--r, 0deg));
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(var(--r, 0deg));
+            }
+        }
+
+        /* ریسپانسیو برای موبایل */
+        @media (max-width: 768px) {
+            .navbar-items {
+                display: none;
+                /* در موبایل منو رو مخفی میکنیم (برای سادگی) */
+            }
+
+            .landing-txt h1 {
+                font-size: 2rem;
+            }
+
+            .landing-btn {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .landing-btn button {
+                width: 100%;
+                max-width: 250px;
+            }
+
+            .t2 {
+                margin-right: -80px;
+            }
+
+            .navbar-search {
+                display: none;
+            }
+
+            .navbar-search:focus-within {
+                width: 100%;
+            }
+
+            .hamberger {
+                display: block;
+            }
+        }
+
+        /* end */
+
+        /* start section part */
+
+        .section-guid {
+            width: 100%;
+            margin-top: 81px;
+            padding: 0 24px;
+            box-sizing: border-box;
+        }
+
+        /* عنوان */
+        .section-guid-title {
+            margin: 25px 0;
+            padding: 0;
+            color: var(--text-color);
+
+            text-align: center;
+            font-weight: 700;
+        }
+
+        /* لیست کارت‌ها */
+        .section-guid-ul {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 0.3fr));
+            gap: 18px 22px;
+            justify-content: center;
+            margin: 0 auto;
+            padding: 0;
+            max-width: 1300px;
+            list-style: none;
+        }
+
+        /* کارت */
+        .section-guid-ul-li {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--text-color);
+            border-radius: 20px;
+            padding: 14px 14px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+            min-height: 180px;
+            background: var(--cart-color);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+            animation: slideUp 0.8s ease-in-out;
+        }
+
+        .section-guid-ul-li:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 26px rgba(0, 0, 0, 0.14);
+        }
+
+        @media (max-width: 768px) {
+            .section-guid-ul {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 14px;
+            }
+
+            .section-guid {
+                padding: 0 16px;
+            }
+        }
+
+        .section-guid-ul-li-number {
+            color: var(--num-color);
+            font-size: 2rem;
+            margin: 0;
+            margin: 0 auto;
+        }
+
+        .section-guid-ul-li-body {
+            color: var(--guid-text);
+        }
