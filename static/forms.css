@@ -1,0 +1,125 @@
+:root {
+    --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    --background-color: #e9edf7;
+    --header: rgba(255, 255, 255, 0.95);
+    --text-color: #002255;
+    --sec-text: #555;
+    --sec-color: #0e6eff;
+    --btn-sec: #0e6eff;
+    --cart-color: #ffffff59;
+    --num-color: rgb(255, 196, 0);
+    --guid-text: #002255;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Tahoma', 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    overflow-x: hidden;
+    font-size: small;
+}
+
+body.darkMode {
+    --bg-gradient: linear-gradient(135deg, #212529 2%, #11284e 98%);
+    --background-color: #11284ef1;
+    --header: #11284ef1;
+    --text-color: hsl(0, 0%, 100%);
+    --sec-text: #767676;
+    --sec-color: #0e6eff;
+    --btn-sec: #ffffff;
+    --cart-color: rgba(255, 255, 255, 0.749);
+    --num-color: rgb(255, 123, 0);
+    --guid-text: block;
+}
+
+
+
+/* start signUp form styles */
+.form-signup {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 30%;
+    margin: 5% auto;
+    border-radius: 10px;
+    padding: 30px 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+}
+
+form::before {
+    position: absolute;
+    content: "";
+    border: solid 100px var(--btn-sec);
+    top: -85px;
+    width: 300px;
+    z-index: -1;
+    right: -60px;
+    border-radius: 10px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+input {
+    width: 100%;
+    margin-top: 10px;
+    height: 35px;
+    border-radius: 5px;
+    border: none;
+    border: solid 1.5px rgb(45, 45, 45);
+    box-sizing: border-box;
+    padding: 2px 5px;
+}
+
+input:hover {
+    border: solid 2px var(--text-color);
+}
+
+input:focus {
+    border: solid 2.5px var(--btn-sec);
+}
+
+button {
+    width: 50%;
+    margin: 0 auto;
+    height: 35px;
+    border: none;
+    border-radius: 20px;
+    background-color: var(--btn-sec);
+    color: var(--header);
+    cursor: pointer;
+}
+
+/*  */
+@media (max-width: 768px) {
+    form::before {
+        position: absolute;
+        content: "";
+        border: solid 90px var(--btn-sec);
+        top: -45px;
+        left: 100px;
+        width: 200px;
+        z-index: -1;
+        border-radius: 10px;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+    }
+
+    .form-signup {
+        margin-bottom: 10px;
+        margin-right: 100px;
+        width: 260px;
+    }
+}
+
+/*  */
